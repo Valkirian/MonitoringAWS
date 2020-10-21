@@ -5,7 +5,7 @@ module MONITORING
     class SmartArchitecture
         attr_accessor :Access_Key_id, :Secret_Access_Key, :region, :credentials, :messenger, :bucket_policy
         def initialize
-            @messenger = Slack::Messenger.new "https://hooks.slack.com/services/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" do 
+            @messenger = Slack::Messenger.new "https://webhook-slack-app.com/" do 
                 defaults channel: "#tech_team",
                 username: "NotificationAWSApp"
             end
