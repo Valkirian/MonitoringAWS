@@ -10,8 +10,8 @@ module MONITORING
                 username: "NotificationAWSApp"
             end
             @bucket_policy = ''
-            @Access_Key_id = 'AKIA2K5ZMRICOQQW6IOO'
-            @Secret_Access_Key = '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'
+            @Access_Key_id = ''
+            @Secret_Access_Key = ''
             @region = 'us-east-1'
             @credentials = Aws::Credentials.new(@Access_Key_id, @Secret_Access_Key)
             Aws.config.update(region: @region,
@@ -79,29 +79,6 @@ module MONITORING
                     end
                 end
             end
-        end
-        def RDS
-            rdsclient = Aws::RDS::Client.new(
-                region: @region,
-                credentials: @credentials
-            )
-            resp = rdsclient.describe_db_instances({
-                db_instance_identifier: "stxcubes2"
-            })
-            resp['db_instances'].each do |data|
-                puts data
-            end
-        end
-        def CloudWatch
-            cloudwatch = Aws::CloudWatch::Client.new(
-                region: @region,
-                credentials: @credentials
-            )
-            resp = cloudwatch.get_dashboard({
-                dashboard_name: "Elastic"
-            })
-            metrics = resp.dashboard_body
-            puts metrics[21,-1]
         end
     end
 end
