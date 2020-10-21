@@ -10,8 +10,8 @@ module MONITORING
                 username: "NotificationAWSApp"
             end
             @bucket_policy = ''
-            @Access_Key_id = ''
-            @Secret_Access_Key = ''
+            @Access_Key_id = 'AWS_KEY_ID'
+            @Secret_Access_Key = 'AWS_SECRET_KEY'
             @region = 'us-east-1'
             @credentials = Aws::Credentials.new(@Access_Key_id, @Secret_Access_Key)
             Aws.config.update(region: @region,
